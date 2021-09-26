@@ -1,0 +1,109 @@
+@import "vars.scss";
+
+.body{
+    background-color: $colorBackground;
+}
+
+/* id para centrar el row que contiene al carrousel.*/
+#row{
+    margin-right: 0;
+    margin-left: 0;
+    
+}
+
+/* id para el resto de las páginas del sitio.*/
+#row2{
+    @extend #row;
+    background-color: $colorMain;
+}
+
+/*Propiedades del logo y nav.*/
+#logo{
+    font-family: 'Prompt', sans-serif;
+    font-size: 3rem;
+    color: $colorLogo;
+
+}
+
+.nav-link{
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bold;
+}
+
+/*Propiedades del footer.*/
+#footer{
+    @extend #row;
+    background-color: $colorLogo;
+    color: $colorFuente;
+    font-family: 'Padauk',sans-serif;
+}
+
+/*Aplico nesting a los párrafos.*/
+div{
+     p{
+        text-align: justify;
+    }
+}
+
+/*Propiedades del formulario.*/
+#form{
+    background-color: $colorForm;
+    padding: $padMargin;
+    margin: $padMargin;
+}
+
+
+/*Clase original para imágenes y sus transformaciones.*/
+.img{
+    opacity: 0.7;
+    height: auto;
+    padding: 2rem;
+
+}
+.img:hover{
+    opacity: 1;
+    transform: scale(1.05,1.05);
+    transition: 1.3s;
+}
+
+
+/*Defino un diccionario para generar y manejar variantes de la clase de imágenes.*/
+$dictionary:( 
+        1: 0.7,
+        2: 0.8,
+        3: 0.9,
+        4: 1);
+
+@each $num,$ancho in $dictionary{
+    .img-#{$num} { 
+        @extend .img;
+        width: 100% * $ancho;
+        border-radius: 50px * $ancho; }
+  }
+  
+
+/*Uso media query para que las distintas páginas tengan el mismo alto en pantallas medias y grandes. En pantallas chicas dejo el alto en auto para no 
+entrar en conflicto con la class container de BS.*/
+
+@media only screen and (max-width:768px){
+    #row2{
+        height: auto;
+        
+    }
+}
+
+@media only screen and (min-width:768px){
+    #row2{
+        height: 75vh;
+        
+    }
+
+}
+
+@media only screen and (min-width:992px){
+    #row2{
+        height: 85vh;
+        
+    }
+
+}

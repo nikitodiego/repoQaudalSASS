@@ -1,0 +1,80 @@
+@charset "UTF-8";
+.body {
+  background-color: #283632; }
+
+/* id para centrar el row que contiene al carrousel.*/
+#row, #row2, #footer {
+  margin-right: 0;
+  margin-left: 0; }
+
+/* id para el resto de las páginas del sitio.*/
+#row2 {
+  background-color: #e4e4e4; }
+
+/*Propiedades del logo y nav.*/
+#logo {
+  font-family: 'Prompt', sans-serif;
+  font-size: 3rem;
+  color: #f85252; }
+
+.nav-link {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: bold; }
+
+/*Propiedades del footer.*/
+#footer {
+  background-color: #f85252;
+  color: black;
+  font-family: 'Padauk',sans-serif; }
+
+/*Aplico nesting a los párrafos.*/
+div p {
+  text-align: justify; }
+
+/*Propiedades del formulario.*/
+#form {
+  background-color: white;
+  padding: 1vh 2vw 1vh 2vw;
+  margin: 1vh 2vw 1vh 2vw; }
+
+/*Clase original para imágenes y sus transformaciones.*/
+.img, .img-1, .img-2, .img-3, .img-4 {
+  opacity: 0.7;
+  height: auto;
+  padding: 2rem; }
+
+.img:hover, .img-1:hover, .img-2:hover, .img-3:hover, .img-4:hover {
+  opacity: 1;
+  transform: scale(1.05, 1.05);
+  transition: 1.3s; }
+
+/*Defino un diccionario para generar y manejar variantes de la clase de imágenes.*/
+.img-1 {
+  width: 70%;
+  border-radius: 35px; }
+
+.img-2 {
+  width: 80%;
+  border-radius: 40px; }
+
+.img-3 {
+  width: 90%;
+  border-radius: 45px; }
+
+.img-4 {
+  width: 100%;
+  border-radius: 50px; }
+
+/*Uso media query para que las distintas páginas tengan el mismo alto en pantallas medias y grandes. En pantallas chicas dejo el alto en auto para no 
+entrar en conflicto con la class container de BS.*/
+@media only screen and (max-width: 768px) {
+  #row2 {
+    height: auto; } }
+
+@media only screen and (min-width: 768px) {
+  #row2 {
+    height: 75vh; } }
+
+@media only screen and (min-width: 992px) {
+  #row2 {
+    height: 85vh; } }
