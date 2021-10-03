@@ -14,12 +14,13 @@
 /*Propiedades del logo y nav.*/
 #logo {
   font-family: 'Prompt', sans-serif;
-  font-size: 3rem;
+  font-size: 3.2rem;
   color: #f85252; }
 
 .nav-link {
   font-family: 'Source Code Pro', monospace;
-  font-weight: bold; }
+  font-weight: bold;
+  font-size: 1.2rem; }
 
 /*Propiedades del footer.*/
 #footer {
@@ -29,52 +30,60 @@
 
 /*Aplico nesting a los párrafos.*/
 div p {
-  text-align: justify; }
+  text-align: justify;
+  font-size: 1.1rem; }
 
 /*Propiedades del formulario.*/
 #form {
   background-color: white;
+  margin: 2vh 0 2vh 0;
   padding: 1vh 2vw 1vh 2vw;
-  margin: 1vh 2vw 1vh 2vw; }
+  border-radius: 1vw; }
 
 /*Clase original para imágenes y sus transformaciones.*/
 .img, .img-1, .img-2, .img-3, .img-4 {
-  opacity: 0.7;
-  height: auto;
-  padding: 2rem; }
-
-.img:hover, .img-1:hover, .img-2:hover, .img-3:hover, .img-4:hover {
-  opacity: 1;
-  transform: scale(1.05, 1.05);
-  transition: 1.3s; }
+  padding: 2rem;
+  width: 100%;
+  height: auto; }
 
 /*Defino un diccionario para generar y manejar variantes de la clase de imágenes.*/
 .img-1 {
-  width: 70%;
-  border-radius: 35px; }
+  opacity: 0.85;
+  border-radius: 42.5px; }
 
 .img-2 {
-  width: 80%;
-  border-radius: 40px; }
-
-.img-3 {
-  width: 90%;
+  opacity: 0.9;
   border-radius: 45px; }
 
+.img-3 {
+  opacity: 0.95;
+  border-radius: 47.5px; }
+
 .img-4 {
-  width: 100%;
+  opacity: 1;
   border-radius: 50px; }
 
-/*Uso media query para que las distintas páginas tengan el mismo alto en pantallas medias y grandes. En pantallas chicas dejo el alto en auto para no 
-entrar en conflicto con la class container de BS.*/
+/*Uso media query para que las distintas páginas tengan el mismo alto en pantallas medianas y grandes. En pantallas chicas dejo el alto en auto para no 
+entrar en conflicto con la class container de BS.
+También manejo las transformaciones en función del tamaño, por ejemplo, que no se apliquen en mobile, y que en pantallas medianas sea más rápida la transición.
+Algunas imágenes de la página nosotros desaparecen en mobile, para que sea más cómodo.
+*/
 @media only screen and (max-width: 768px) {
   #row2 {
-    height: auto; } }
+    height: auto; }
+  .img-1, .img-2, .img-3 {
+    display: none; } }
 
 @media only screen and (min-width: 768px) {
   #row2 {
-    height: 75vh; } }
+    height: 95vh; }
+  .img:hover, .img-1:hover, .img-2:hover, .img-3:hover, .img-4:hover {
+    transform: scale(1.025, 1.025);
+    transition: 1.1s; } }
 
 @media only screen and (min-width: 992px) {
   #row2 {
-    height: 85vh; } }
+    height: 100vh; }
+  .img:hover, .img-1:hover, .img-2:hover, .img-3:hover, .img-4:hover {
+    transform: scale(1.05, 1.05);
+    transition: 1.2s; } }
