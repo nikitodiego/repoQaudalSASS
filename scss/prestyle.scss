@@ -37,6 +37,7 @@
     background-color: $colorLogo;
     color: $colorFuente;
     font-family: 'Padauk',sans-serif;
+    padding: 10px 0 0 5px;
 }
 
 /*Aplico nesting a los párrafos.*/
@@ -62,6 +63,13 @@ div{
     height: auto;
 }
 
+.img__logo{
+    padding: 5px;
+    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+
+}
 
 
 /*Defino un diccionario para generar y manejar variantes de la clase de imágenes.*/

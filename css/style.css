@@ -26,7 +26,8 @@
 #footer {
   background-color: #f85252;
   color: black;
-  font-family: 'Padauk',sans-serif; }
+  font-family: 'Padauk',sans-serif;
+  padding: 10px 0 0 5px; }
 
 /*Aplico nesting a los párrafos.*/
 div p {
@@ -45,6 +46,12 @@ div p {
   padding: 2rem;
   width: 100%;
   height: auto; }
+
+.img__logo {
+  padding: 5px;
+  border-radius: 8px;
+  width: 38px;
+  height: 38px; }
 
 /*Defino un diccionario para generar y manejar variantes de la clase de imágenes.*/
 .img-1 {
