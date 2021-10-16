@@ -31,6 +31,11 @@
     font-size: 1.2rem;
 }
 
+/*Propiedades de la tabla.*/
+#table{
+    padding: 3rem 2rem 0 2rem;
+}
+
 /*Propiedades del footer.*/
 #footer{
     @extend #row;
@@ -45,18 +50,19 @@ div{
      p{
         text-align: justify;
         font-size: 1.1rem;
+        padding: 1rem;
     }
 }
 
 /*Propiedades del formulario.*/
-#form{
+#form,#form-mapa{
     background-color: $colorForm;
-    margin: 2vh 0 2vh 0;
+    margin: 5vh 0 2vh 0;
     padding: $padMargin;
     border-radius: 1vw;}
 
 
-/*Clase original para imágenes y sus transformaciones.*/
+/*Clase original para imágenes.*/
 .img{
     padding: 2rem;
     width: 100%;
@@ -71,7 +77,6 @@ div{
 
 }
 
-
 /*Defino un diccionario para generar y manejar variantes de la clase de imágenes.*/
 $dictionary:( 
         1: 0.85,
@@ -82,15 +87,14 @@ $dictionary:(
 @each $key,$val in $dictionary{
     .img-#{$key} { 
         @extend .img;
-        opacity: $val;
-        border-radius: 50px*$val;}
+        opacity: $val;}
   }
   
 
-/*Uso media query para que las distintas páginas tengan el mismo alto en pantallas medianas y grandes. En pantallas chicas dejo el alto en auto para no 
+/*Uso media query para que las distintas páginas del sitio tengan el mismo alto en pantallas medianas y grandes. En pantallas chicas dejo el alto en auto para no 
 entrar en conflicto con la class container de BS.
 También manejo las transformaciones en función del tamaño, por ejemplo, que no se apliquen en mobile, y que en pantallas medianas sea más rápida la transición.
-Algunas imágenes de la página nosotros desaparecen en mobile, para que sea más cómodo.
+Algunas imágenes de las distintas páginas desaparecen en mobile, para que sea más cómodo el scroll.
 */
 
 @media only screen and (max-width:768px){
@@ -99,6 +103,9 @@ Algunas imágenes de la página nosotros desaparecen en mobile, para que sea má
     }
     .img-1,.img-2,.img-3{
     display: none;
+    }
+    .img-4{
+    border-radius: 40px;
     }
 }
 
@@ -109,6 +116,13 @@ Algunas imágenes de la página nosotros desaparecen en mobile, para que sea má
     .img:hover{
         transform: scale(1.025,1.025);
         transition: 1.1s;
+        opacity: 1;
+    }
+    .img-1,.img-2,.img-3,.img-4{
+        border-radius: 40px;
+        }
+    #logo:hover{
+        transform: scale(1.03,1.03);
     }
 }
 
@@ -119,5 +133,20 @@ Algunas imágenes de la página nosotros desaparecen en mobile, para que sea má
     .img:hover{
         transform: scale(1.05,1.05);
         transition: 1.2s;
+        opacity: 1;
+    }
+    .img-1,.img-2,.img-3,.img-4{
+        border-radius: 50px;
+        }
+    #logo:hover{
+        transform: scale(1.07,1.07);
+        transition: 0.5s;
+        }
+}
+
+/*Defino esta media query para casos de pantallas con poca altura en relación al ancho, como algunos celulares en posición horizontal.*/
+@media only screen and (max-height:590px){
+    .img-1,.img-2,.img-3,.img-4,#form-mapa,#table{
+    display: none;
     }
 }
